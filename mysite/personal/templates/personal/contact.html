@@ -1,0 +1,12 @@
+{% extends "personal/header.html" %}
+
+{% block content %}
+<div class="container">
+	{% for c in content %}
+	<h1 class="welcome text-center">
+		{{c}}
+	</h1>
+	{% endfor %}
+</div>
+
+{% endblock %}

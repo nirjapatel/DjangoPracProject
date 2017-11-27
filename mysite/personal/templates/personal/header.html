@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>NIRJA PATEL</title>
+    <meta charset="utf-8"/>
+    {% load staticfiles  %}
+    <link rel='stylesheet' href="{% static 'css/bootstrap.min.css' %}" type='text/css' />
+    <link rel='stylesheet' href="{% static 'css/loginpage.css' %}" type='text/css' />
+  </head>
+  <!-- 3. Display the application -->
+  <body class="body">
+    
+
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/" style="color:white">BLOG</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact/" style="color:white">CONTACT US</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/" style="color:white">LINK</a>
+      </li>
+
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="/editprofile" style="color:white">EDIT PROFILE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/change-password" style="color:white">CHANGE PASSWORD</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/reset-password/" style="color:white">PASSWORD RESET</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout" style="color:white">LOG OUT</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="/login" style="color:white">LOGIN</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register" style="color:white">REGISTER</a>
+      </li> 
+      {% endif %}
+    </ul>
+
+    <div class="container-fluid">
+      <br>
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

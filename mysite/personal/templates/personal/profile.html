@@ -1,0 +1,29 @@
+{% extends "personal/header.html" %}
+
+<div class="container" >
+	Current Logged In User:
+    {% block content %}
+    <body class="body">
+    	<ul class="nav nav-pills nav-fill">
+      		<li class="nav-item">
+       			<a class="nav-link" href="/logout" style="color:white">LOG OUT</a>
+      		</li>
+      		<li class="nav-item">
+        		<a class="nav-link" href="/editprofile" style="color:white">EDIT PROFILE</a>
+      		</li>
+          <li class="nav-item">
+            <a class="nav-link" href="/change-password" style="color:white">CHANGE PASSWORD</a>
+          </li>
+    	</ul>
+	</body>  
+    <div class="welcome text-center">
+    	{% if user.is_authenticated %} 
+			<h2>User: {{ user}}</h2>
+			<h2>First Name: {{ user.first_name }}</h2>
+			<h2>Last Name: {{ user.last_name }}</h2>
+			<h2>Email: {{ user.email }}</h2>
+		  {% endif %} 
+	</div>
+	{% endblock %}
+</div>
+
