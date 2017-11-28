@@ -8,6 +8,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 
 
+
 def index(request):
 	return render(request, 'personal/home.html')
 
@@ -28,12 +29,12 @@ def register(request):
 		args = {'form':form}
 		return render(request, 'personal/registerForm.html', args)
 
-@login_required
+
 def profile(request):
 	args = {'user': request.user}
 	return render(request, 'personal/profile.html', args)
 
-@login_required
+#@login_required
 def editprofile(request):
 	if request.method == 'POST':
 		#form = UserChangeForm(request.POST, instance=request.user)
@@ -47,7 +48,7 @@ def editprofile(request):
 		args = {'form':form}
 		return render(request, 'personal/editprofile.html', args)
 
-@login_required
+#@login_required
 def change_password(request):
 	if request.method == 'POST':
 		#form = UserChangeForm(request.POST, instance=request.user)

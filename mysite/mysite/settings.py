@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'mysite.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -123,6 +124,22 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/profile/'
+
+LOGIN_URL = '/login/'
+
+LOGIN_EXEMPT_URLS = [
+    r'^register/$',
+    r'^logout/$',
+    r'^blog/$',
+    r'^contact/$',
+    r'^/$',
+]
+
+LOGIN_NON_EXEMPT_URLS = [
+    r'^register/$',
+    r'^logout/$',
+
+]
 
 EMAIL_HOST = 'localhost'
 
