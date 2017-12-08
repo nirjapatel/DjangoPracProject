@@ -22,6 +22,9 @@
 			<h2>First Name: {{ user.first_name }}</h2>
 			<h2>Last Name: {{ user.last_name }}</h2>
 			<h2>Email: {{ user.email }}</h2>
+      <h2>Contact No: {{ user.userprofile.phone }}</h2>
+      <h2>Description: {{ user.userprofile.description }}</h2>
+      <img src="{{ user.userprofile.image.url }}" width="225" height="225">
 		  {% endif %} 
 	</div>
 	{% endblock %}

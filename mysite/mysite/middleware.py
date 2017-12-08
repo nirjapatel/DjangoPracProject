@@ -7,12 +7,12 @@ from django.urls import reverse
 EXEMPT_URLS = [re.compile(settings.LOGIN_URL.lstrip('/'))]
 if hasattr(settings, 'LOGIN_EXEMPT_URLS'):
 	EXEMPT_URLS += [re.compile(url) for url in settings.LOGIN_EXEMPT_URLS]
-	print(EXEMPT_URLS)
+	#print(EXEMPT_URLS)
 
 NON_EXEMPT_URLS = [re.compile(settings.LOGIN_URL.lstrip('/'))]
 if hasattr(settings, 'LOGIN_NON_EXEMPT_URLS'):
 	NON_EXEMPT_URLS += [re.compile(url) for url in settings.LOGIN_NON_EXEMPT_URLS]
-	print(NON_EXEMPT_URLS)
+	#print(NON_EXEMPT_URLS)
 	
 class LoginRequiredMiddleware:
 	def __init__(self, get_response):
@@ -35,10 +35,10 @@ class LoginRequiredMiddleware:
 			logout(request)
 
 		if request.user.is_authenticated() and url_is_not_exempt:
-			print('Logged in')
+			#print('Logged in')
 			return redirect(settings.LOGIN_REDIRECT_URL)
 		elif request.user.is_authenticated() or url_is_exempt:
-			print('Not Logged in')
+			#print('Not Logged in')
 			return None
 		else:
 			return redirect(settings.LOGIN_URL)

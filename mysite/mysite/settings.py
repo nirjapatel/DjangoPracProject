@@ -123,6 +123,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'personal/media/')
+
 LOGIN_REDIRECT_URL = '/profile/'
 
 LOGIN_URL = '/login/'
